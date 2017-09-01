@@ -1,2 +1,29 @@
-<h1>Recipes#index</h1>
+<h1>Recipes Index</h1>
 <p>Find me in app/views/recipes/index.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th class="headers">Title</th>
+      <th class="headers">Author</th>
+      <th class="headers">Description</th>
+      <th class="headers">Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @recipe.recipes.each do |recipe| %>
+    <tr class="body">
+      <td><%= recipe.name %></td>
+      <td><%= recipe.ingredients %></td>
+      <td><%= recipe.description %></td>
+      <td><%= recipe.URL %></td>
+      <td class="button"><%= link_to 'Show', recipe %></td>
+      <td class="button"><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+      <td class="button"><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</tbody>
+
+</table>
