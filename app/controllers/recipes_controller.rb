@@ -11,6 +11,14 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def destroy
+    @recipe = Recipe.destroy(params[:id])
+    respond_to do |format|
+        format.html { redirect_to recipes_path, notice: 'Recipe was successfully destroyed.' }
+        format.json { head :no_content }
+end
+  end
+
   def edit
     @recipe = Recipe.find(params[:id])
   end
