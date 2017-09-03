@@ -12,7 +12,7 @@
   <% end %>
 
   <h1>Create a New Recipe</h1>
-
+<%= form_for @recipe do |f| %>
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :recipe_name %>
@@ -23,12 +23,26 @@
     <%= form.text_field :ingredients, id: :recipe_ingredients %>
   </div>
 
+
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, id: :recipe_description %>
   </div>
 
+  <div id='ingredients'>
+      <%= f.fields_for :ingredients do |ingredient| %>
+        <%= render 'ingredients_fields', :f => ingredient %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'Add Ingredient', f, :ingredients %>
+      </div>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
+  <br>
+  <% end %>
+
+  <%= link_to 'Back', root_path %>
 <% end %>

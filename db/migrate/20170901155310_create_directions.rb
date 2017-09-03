@@ -1,8 +1,7 @@
 class CreateDirections < ActiveRecord::Migration[5.1]
   def change
     create_table :directions do |t|
-      t.text :description
-
+      t.text :step
       t.timestamps
     end
   end
