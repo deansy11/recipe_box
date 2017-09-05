@@ -14,19 +14,19 @@
   <h1>Create a New Recipe</h1>
 <%= form_for @recipe do |f| %>
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :recipe_name %>
+    <%= f.label :name %>
+    <%= f.text_field :name, id: :recipe_name %>
   </div>
 
   <div class="field">
-    <%= form.label :ingredients %>
-    <%= form.text_field :ingredients, id: :recipe_ingredients %>
+    <%= f.label :ingredients %>
+    <%= f.text_field :ingredients, id: :recipe_ingredients %>
   </div>
 
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :recipe_description %>
+    <%= f.label :description %>
+    <%= f.text_area :description, id: :recipe_description %>
   </div>
   <br>
   <div id='ingredients'>
@@ -48,7 +48,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit 'Create Recipe'%>
   </div>
   <br>
   <% end %>
