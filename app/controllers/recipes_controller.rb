@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.page(1).per(4)
+    @recipes = Recipe.all.page(1).per(4)
   end
 
   def new
@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients
   end
 
   def destroy
@@ -31,7 +32,6 @@ def create
     render 'new'
   end
 end
-
 
 def update
   @recipe = Recipe.find(params[:id])
