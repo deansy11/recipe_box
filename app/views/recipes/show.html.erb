@@ -8,16 +8,17 @@
 <!-- This is showing the wrong ingredients (not the newly imported in the nested forms) -->
 <p>
   <strong>Ingredients:</strong>
-  <%= @ingredients.to_json %>
+  <% @ingredient.recipe.each do |recipe| %>
+  <tr>
+    <td><%= ingredient.ingredient %></td>
+  </tr>
+  <% end %>
 </p>
 
 <p>
   <strong>Description:</strong>
   <%= @recipe.description %>
 </p>
-
-
-
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', root_path %>

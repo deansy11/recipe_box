@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all.page(1).per(4)
+    @recipes = Recipe.page(params[:page]).per(8)
   end
 
   def new

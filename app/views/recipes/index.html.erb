@@ -11,19 +11,19 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
-  <tbody>
-  <% @recipes.each do |recipe| %>
-    <tr class="body">
-      <td><%= recipe.name %></td>
-      <!-- need to change -->
-      <td><%= recipe.ingredients %></td>
-      <td><%= recipe.description %></td>
-      <td class="button"><%= link_to 'Show', recipe %></td>
-      <td class="button"><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-      <td class="button"><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</tbody>
-
+    <tbody>
+        <% @recipes.each do |recipe| %>
+          <tr class="body">
+            <td><%= recipe.name %></td>
+            <td><%= recipe.ingredients %></td>
+            <td><%= recipe.description %></td>
+            <td class="button"><%= link_to 'Show', recipe %></td>
+            <td class="button"><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+            <td class="button"><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+    </tbody>
 </table>
+
+<%= paginate @recipes %>
+<%= page_entries_info @recipes %>

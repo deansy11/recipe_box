@@ -3,15 +3,41 @@ class IngredientsController < ApplicationController
   end
 
   def new
+    @recipe = Recipe.find(params[:recipe_id])
     @ingredient = Ingredient.new
   end
 
-  # def new
-  #   @recipe = Recipe.find_by(id: params[:recipe_id])
-  #     unless @recipe
-  #       redirect_to ingredients_path
-  #       return
-  #     end
-  #   @ingredient = Ingredient.new(recipe_id: @recipe.id)
-  # end
+  def create
+    @recipe = Recipe.find(params[:recipe_id])
+    @ingredient = Ingredient.new
+    @ingredient.recipe = @recipe
+
+    respond_to do |format|
+      if @answer.save
+        format.html { redirect_to recipes_url }
+        format.json { render :show, status: :created, title: @ingredient }
+      else
+        format.html { render :new }
+        format.json { render json: @ingredient.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def edit
+    #code
+  end
+
+  def destroy
+    @ingredient.destroy
+    respond_to do |format|
+        format.html { redirect_to questions_url, notice: 'Ingredient was successfully destroyed.' }
+        format.json { head :no_content }
+  end
+
+  private
+
+    def ingredient_params
+      params.require(:ingredient).permit(:body)
+    end
+
 end
