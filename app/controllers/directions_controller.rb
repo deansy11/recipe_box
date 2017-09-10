@@ -10,4 +10,11 @@ class DirectionsController < ApplicationController
       end
     @direction = Direction.new(recipe_id: @recipe.id)
   end
+
+  private
+
+    def ingredient_params
+      params.require(:direction).permit(:description)
+    end
+
 end

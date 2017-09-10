@@ -5,6 +5,10 @@
   <%= @recipe.name %>
 </p>
 
+<p>
+  <strong>Description:</strong>
+  <%= @recipe.description %>
+</p>
 <!-- This is showing the wrong ingredients (not the newly imported in the nested forms) -->
 <p>
   <strong>Ingredients:</strong>
@@ -12,8 +16,8 @@
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
+  <strong>Steps:</strong>
+  <%= @directions.to_json %>
 </p>
 
 
