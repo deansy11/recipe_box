@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  include PgSearch
+
   has_many :ingredients
   has_many :directions
 
@@ -8,4 +10,5 @@ class Recipe < ApplicationRecord
 
   validates :name, presence: true
 
+  multisearchable against: %i(name ingredients)
 end

@@ -38,6 +38,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails', '~> 4.3.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'pg_search'
 
 
 group :development, :test do
