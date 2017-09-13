@@ -30,14 +30,14 @@ class IngredientsController < ApplicationController
   def destroy
     @ingredient.destroy
     respond_to do |format|
-        format.html { redirect_to questions_url, notice: 'Ingredient was successfully destroyed.' }
+        format.html { redirect_to recipes_url, notice: 'Ingredient was successfully destroyed.' }
         format.json { head :no_content }
   end
 
   private
 
     def ingredient_params
-      params.require(:ingredient).permit(:description, :amount)
+      params.require(:ingredient, :amount).permit(:description, :amount)
     end
 
 end

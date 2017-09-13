@@ -9,15 +9,23 @@
   <strong>Description:</strong>
   <%= @recipe.description %>
 </p>
-<!-- This is showing the wrong ingredients (not the newly imported in the nested forms) -->
+
 <p>
   <strong>Ingredients:</strong>
-  <%= @ingredients.to_json %>
+  <% @recipe.ingredients.each do |ingredient| %>
+  <ul>
+    <li><%= ingredient.ingredient %> - <%= ingredient.amount %></li>
+  </ul>
+  <% end %>
 </p>
 
 <p>
   <strong>Steps:</strong>
-  <%= @directions.to_json %>
+  <% @recipe.directions.each do |direction| %>
+  <ul>
+    <li><%= direction.description %></li>
+  </ul>
+  <% end %>
 </p>
 
 
