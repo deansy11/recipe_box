@@ -2,16 +2,12 @@
   <h1>Search Results</h1>
   <table>
     <thead>
-      <tr>
-        <th>Title</th>
-        <th>Body</th>
-      </tr>
+      <h3>Recipes that include '<%= params[:q] %>'</h3>
     </thead>
     <tbody>
       <% @pg_search_recipes.find_each do |recipe| %>
       <tr>
-        <td><%= recipe.searchable.name %></td>
-        <td><%= recipe.searchable.ingredients %></td>
+        <td><%= recipe.searchable.ingredients.to_json %></td>
         <td><%= link_to 'Show', class: "btn btn-primary"%></td>
       </tr>
       <% end %>
