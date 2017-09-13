@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'results/index'
+  get 'result/index'
 
   root to: 'recipes#index'
   resources :recipes

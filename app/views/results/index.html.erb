@@ -11,7 +11,7 @@
       <% @pg_search_recipes.find_each do |recipe| %>
       <tr>
         <td><%= recipe.searchable.name %></td>
-        <td><%= recipe.searchable.ingredient %></td>
+        <td><%= recipe.searchable.ingredients %></td>
         <td><%= link_to 'Show', class: "btn btn-primary"%></td>
       </tr>
       <% end %>
