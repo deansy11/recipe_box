@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.destroy(params[:id])
     respond_to do |format|
-        format.html { redirect_to recipes_path }
+      format.html { redirect_to recipes_path }
     end
   end
 
