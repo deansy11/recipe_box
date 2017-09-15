@@ -12,20 +12,20 @@
 
 <p>
   <strong>Ingredients:</strong>
-  <% @recipe.ingredients.each do |ingredient| %>
   <ul>
+  <% @recipe.ingredients.each do |ingredient| %>
     <li><%= ingredient.ingredient %> - <%= ingredient.amount %></li>
-  </ul>
   <% end %>
+</ul>
 </p>
 
 <p>
   <strong>Steps:</strong>
-  <% @recipe.directions.each do |direction| %>
   <ul>
-    <li><%= direction.description %></li>
-  </ul>
+  <% @recipe.directions.each do |direction| %>
+    <li><%= direction.step %></li>
   <% end %>
+</ul>
 </p>
 
 

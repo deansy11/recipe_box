@@ -4,7 +4,7 @@
     <title>RecipeBox</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet">
@@ -12,14 +12,15 @@
 
   <body>
     <header>
+      <%= form_with url: results_index_path, method: :get, local: true do |form| %>
       <nav class="navbar navbar-inverse" role="navigation">
       <div class="container">
         <div class="navbar_header">
             <span><%= link_to "All Recipes", root_path%></span>
           <form class="navbar-form" action="/results/index" method="get">
-            <input type=”text” name=q id=”search” placeholder="Search Recipes">
-            <button class="btn btn-default" type="submit">Go</button>
-          </form>
+            <%= form.text_field :q %>
+          <%= form.submit "Go" %>
+          <% end %>
         </div>
       </div>
     </header>
